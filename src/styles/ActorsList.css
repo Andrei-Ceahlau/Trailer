@@ -1,0 +1,113 @@
+/* Container general */
+.actors-container {
+    background: #141414;
+    padding: 40px 5%;
+    border-radius: 10px;
+    margin-top: 30px;
+  }
+  
+  /* Titlul secțiunii */
+  .actors-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e50914;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  
+  /* Grid pentru afișarea actorilor */
+  .actors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    justify-content: center;
+    align-items: start;
+  }
+  
+  /* Card individual actor */
+  .actor-card {
+    background: #1c1c1c;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .actor-card:hover {
+    transform: scale(1.08);
+  }
+  
+  /* Imaginea actorului */
+  .actor-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Numele actorului */
+  .actor-name {
+    font-size: 1rem;
+    color: white;
+    margin-top: 10px;
+  }
+  
+  /* Rolul actorului */
+  .actor-character {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 10px;
+  }
+  
+  /* src/styles/ActorsList.css */
+
+.actors-list-container {
+    background: #141414;
+    color: white;
+    padding: 40px 5%;
+  }
+  
+  .actors-list-container h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e50914;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Grid pentru lista actorilor */
+  .actors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  /* Card actor */
+  .actor-card {
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .actor-card:hover {
+    transform: scale(1.1);
+  }
+  
+  .actor-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .actor-card p {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+  }
+  

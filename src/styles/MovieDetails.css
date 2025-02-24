@@ -1,0 +1,161 @@
+/* src/styles/MovieDetails.css */
+.movie-details-container {
+    background: #141414;
+    color: white;
+    padding: 40px 5%;
+    min-height: 100vh;
+}
+
+.movie-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.movie-backdrop {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+}
+
+.movie-info {
+    max-width: 700px;
+    margin-top: 20px;
+}
+
+.movie-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.favorite-btn {
+    background: #ff0000;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.favorite-btn.added {
+    background: #008000;
+}
+
+.favorite-btn:hover {
+    background: #cc0000;
+}
+
+/* Trailer */
+.trailer-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ff0000;
+}
+
+/* Filme Similare */
+.similar-movies {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.similar-movies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.similar-movie-card {
+    width: 150px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.similar-movie-card:hover {
+    transform: scale(1.1);
+}
+
+.similar-movie-poster {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.similar-movie-title {
+    margin-top: 8px;
+    font-size: 1rem;
+}
+
+/* Container pentru recenzii */
+.reviews-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: white;
+  }
+  
+  /* Titlul secțiunii de recenzii */
+  .reviews-container h2 {
+    color: #e50914;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+  
+  /* Card pentru fiecare recenzie */
+  .review {
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Numele autorului */
+  .review h4 {
+    font-size: 1rem;
+    color: #ffcc00;
+  }
+  
+  /* Textul recenziei */
+  .review p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #ddd;
+  }
+  
+  /* Butonul "Show More Reviews" */
+  .show-more-btn {
+    background: #e50914;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: block;
+    margin: 20px auto;
+  }
+  
+  .show-more-btn:hover {
+    background: #ff0000;
+  }
+  

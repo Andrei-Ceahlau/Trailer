@@ -1,0 +1,130 @@
+/* Fundal general pentru carousel */
+.movie-carousel-container {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
+  padding: 30px 0;
+  border-radius: 10px;
+  max-width: 90%;
+  margin: 100px auto 0;
+  overflow: hidden;
+}
+
+/* Ajustăm înălțimea pentru a se potrivi cu imaginile */
+.mySwiper {
+  padding-bottom: 10px;
+  height: 300px;
+}
+
+/* Imaginea filmului - FULL WIDTH */
+.movie-image {
+  width: 100%;
+  height: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* 🎬 Efect hover pe filme - Stil Netflix */
+.movie-slide {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Glow și zoom la hover */
+.movie-slide:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 8px 15px rgba(255, 0, 0, 0.8);
+}
+
+/* Efect hover pe imagine */
+.movie-slide:hover .movie-image {
+  transform: scale(1.1);
+}
+
+/* Overlay pentru numele filmului */
+.movie-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* **Titlul apare și se mișcă la hover** */
+.movie-slide:hover .movie-overlay {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+/* 🔥 Săgeți mai atractive - Stil Netflix */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ff0000 !important;
+  font-size: 28px;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Efect de hover pe săgeți */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transform: scale(1.3);
+  filter: drop-shadow(0px 0px 15px rgba(255, 0, 0, 0.9));
+}
+
+/* Bullet pagination - mai vizibil */
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.5) !important;
+  width: 12px;
+  height: 12px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ff0000 !important;
+  transform: scale(1.4);
+}
+
+/* Responsivitate - ajustare pentru ecrane mici */
+@media (max-width: 1024px) {
+  .mySwiper {
+    height: 250px;
+  }
+  .movie-image {
+    max-height: 230px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mySwiper {
+    height: 200px;
+  }
+  .movie-image {
+    max-height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mySwiper {
+    height: 180px;
+  }
+  .movie-image {
+    max-height: 160px;
+  }
+  .movie-overlay {
+    font-size: 12px;
+    padding: 6px;
+  }
+}

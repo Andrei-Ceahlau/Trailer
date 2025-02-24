@@ -1,0 +1,36 @@
+/* Footer general */
+.site-footer {
+    background: #141414;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    border-top: 2px solid #e50914;
+  }
+  
+  /* Link-uri din footer */
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .footer-links li {
+    display: inline;
+  }
+  
+  .footer-links a {
+    color: #e50914;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .footer-links a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
