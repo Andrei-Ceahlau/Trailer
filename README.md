@@ -1,14 +1,11 @@
-# 🎬 Trailer App - Movie Browser
-A movie browsing application that allows users to search, view details, and save their favorite movies.
+# 1️⃣ Clone the repository
+git clone https://github.com/Andrei-Ceahlau/Trailer.git
 
-## 🚀 Installation & Setup
-1. Clone the repository:
-2. Install dependencies:
-3. Create an `.env` file in the root directory (or rename `.env.example` to `.env`):
-4. Edit `.env` and add your **TMDB API Key**:
-5. Start the application:
+# 2️⃣ Navigate to the project folder
+cd Trailer
 
-✅ Now, the app will work properly with the correct API Key.
+# 3️⃣ Install dependencies
+npm install
 
----
-
+# 4️⃣ Start the development server
+npm start
