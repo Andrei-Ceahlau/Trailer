@@ -2,22 +2,16 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom"; // ✅ Importă Link!
 import axios from "axios";
-
 import "../styles/ActorDetails.css"; 
 
 function ActorDetails() {
   const { id } = useParams();
   const [actor, setActor] = useState(null);
   const [movies, setMovies] = useState([]);
-  const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+  
+  const API_KEY = "2ac6f0215c6dc9f9ffa71c2b1b3f9e82"; // ✅ API direct în cod
 
   useEffect(() => {
-    if (!API_KEY) {
-      console.error("API Key is missing!");
-      return;
-    }
-
-    // Fetch actor details
     axios
       .get(`https://api.themoviedb.org/3/person/${id}?api_key=${API_KEY}&append_to_response=movie_credits`)
       .then((response) => {
@@ -25,7 +19,7 @@ function ActorDetails() {
         setMovies(response.data.movie_credits.cast);
       })
       .catch((error) => console.error("Error fetching actor details:", error));
-  }, [id, API_KEY]);
+  }, [id]);
 
   if (!actor) {
     return <h2 className="loading-message">Loading actor details...</h2>;

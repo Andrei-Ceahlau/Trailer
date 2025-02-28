@@ -12,14 +12,13 @@ function Home() {
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState(""); // Gen selectat
   const [sortBy, setSortBy] = useState("popularity.desc"); // Sortare implicită
-  
-  const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+
+  const API_KEY = "2ac6f0215c6dc9f9ffa71c2b1b3f9e82"; // 🔥 API direct în cod
 
   useEffect(() => {
-    if (!API_KEY) return;
-
     // Fetch filme populare
-    axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`)
+    axios
+      .get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`)
       .then((response) => {
         setMovies(response.data.results);
         setFilteredMovies(response.data.results);
@@ -27,7 +26,8 @@ function Home() {
       .catch((error) => console.log(error));
 
     // Fetch genuri
-    axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`)
+    axios
+      .get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`)
       .then((response) => {
         setGenres(response.data.genres);
       })
@@ -38,11 +38,13 @@ function Home() {
   const handleGenreChange = (event) => {
     const genreId = event.target.value;
     setSelectedGenre(genreId);
-    
+
     if (!genreId) {
       setFilteredMovies(movies);
     } else {
-      const filtered = movies.filter(movie => movie.genre_ids.includes(Number(genreId)));
+      const filtered = movies.filter((movie) =>
+        movie.genre_ids.includes(Number(genreId))
+      );
       setFilteredMovies(filtered);
     }
   };
@@ -54,8 +56,10 @@ function Home() {
 
     const sortedMovies = [...filteredMovies].sort((a, b) => {
       if (sortOption === "popularity.desc") return b.popularity - a.popularity;
-      if (sortOption === "vote_average.desc") return b.vote_average - a.vote_average;
-      if (sortOption === "release_date.desc") return new Date(b.release_date) - new Date(a.release_date);
+      if (sortOption === "vote_average.desc")
+        return b.vote_average - a.vote_average;
+      if (sortOption === "release_date.desc")
+        return new Date(b.release_date) - new Date(a.release_date);
     });
 
     setFilteredMovies(sortedMovies);
@@ -68,15 +72,25 @@ function Home() {
       {/* 🔥 Dropdown-uri pentru filtrare și sortare */}
       <div className="filters-container">
         {/* Filtrare după gen */}
-        <select className="filter-dropdown" onChange={handleGenreChange} value={selectedGenre}>
+        <select
+          className="filter-dropdown"
+          onChange={handleGenreChange}
+          value={selectedGenre}
+        >
           <option value="">All Genres</option>
           {genres.map((genre) => (
-            <option key={genre.id} value={genre.id}>{genre.name}</option>
+            <option key={genre.id} value={genre.id}>
+              {genre.name}
+            </option>
           ))}
         </select>
 
         {/* Sortare */}
-        <select className="filter-dropdown" onChange={handleSortChange} value={sortBy}>
+        <select
+          className="filter-dropdown"
+          onChange={handleSortChange}
+          value={sortBy}
+        >
           <option value="popularity.desc">Most Popular</option>
           <option value="vote_average.desc">Highest Rated</option>
           <option value="release_date.desc">Newest</option>

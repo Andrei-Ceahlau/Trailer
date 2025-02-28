@@ -14,14 +14,10 @@ function MovieDetails() {
   const [reviews, setReviews] = useState([]); // ✅ Adăugăm recenzii
   const [showAllReviews, setShowAllReviews] = useState(false); // ✅ Controlăm vizibilitatea recenziilor
   const { addFavorite, favorites } = useContext(FavoritesContext);
-  const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+  
+  const API_KEY = "2ac6f0215c6dc9f9ffa71c2b1b3f9e82"; // ✅ API direct în cod
 
   useEffect(() => {
-    if (!API_KEY) {
-      console.error("API Key is missing!");
-      return;
-    }
-
     axios
       .get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`)
       .then((response) => setMovie(response.data))
@@ -36,7 +32,7 @@ function MovieDetails() {
       .get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY}`)
       .then((response) => setReviews(response.data.results))
       .catch((error) => console.error("Error fetching reviews:", error));
-  }, [id, API_KEY]);
+  }, [id]);
 
   if (!movie) {
     return <h2 className="loading-message">Loading movie details...</h2>;

@@ -11,14 +11,14 @@ function useQuery() {
 function SearchResults() {
   const query = useQuery().get("query");
   const [movies, setMovies] = useState([]);
-  const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+  const API_KEY = "2ac6f0215c6dc9f9ffa71c2b1b3f9e82"; // 🔥 API direct în cod
 
   useEffect(() => {
     if (!query) return;
 
     axios
       .get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`)
-      .then((response) => setMovies(response.data.results))
+      .then((response) => setMovies(response.data.results || []))
       .catch((error) => console.error("Error fetching search results:", error));
   }, [query, API_KEY]);
 
@@ -30,13 +30,15 @@ function SearchResults() {
       <div className="search-movies-grid">
         {movies.length > 0 ? (
           movies.map((movie) => (
-            <Link to={`/movie/${movie.id}`} key={movie.id} className="search-movie-card"> {/* 🔥 Acum fiecare film e clickabil */}
+            <Link to={`/movie/${movie.id}`} key={movie.id} className="search-movie-card">
               <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "https://via.placeholder.com/500"}
                 alt={movie.title}
                 className="search-movie-image"
               />
-              <h5 className="search-movie-title">{movie.title} ({movie.release_date?.split("-")[0]})</h5>
+              <h5 className="search-movie-title">
+                {movie.title} ({movie.release_date?.split("-")[0] || "Unknown"})
+              </h5>
             </Link>
           ))
         ) : (

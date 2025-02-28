@@ -10,20 +10,22 @@ function MovieCard({ movie, addToFavorites }) {
   const [trailerKey, setTrailerKey] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
   let hoverTimeout = null;
-  const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+  const API_KEY = "2ac6f0215c6dc9f9ffa71c2b1b3f9e82"; // 🔥 API direct în cod
 
   useEffect(() => {
+    if (!movie.id) return; // ✅ Evităm erorile dacă `movie` nu există
+
     axios
       .get(`https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${API_KEY}`)
       .then((response) => {
-        const trailers = response.data.results;
+        const trailers = response.data.results || [];
         const officialTrailer = trailers.find((video) => video.type === "Trailer" && video.site === "YouTube");
         if (officialTrailer) {
           setTrailerKey(officialTrailer.key);
         }
       })
       .catch((error) => console.error("Error fetching trailer:", error));
-  }, [movie.id, API_KEY]);
+  }, [movie.id]);
 
   const handleMouseEnter = () => {
     hoverTimeout = setTimeout(() => {
@@ -52,18 +54,16 @@ function MovieCard({ movie, addToFavorites }) {
           ></iframe>
         ) : (
           <img
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "https://via.placeholder.com/500"}
             alt={movie.title}
             className="movie-image"
           />
         )}
         <div className="movie-overlay">
-          <h5>{movie.title} ({movie.release_date?.split("-")[0]})</h5>
+          <h5>{movie.title} ({movie.release_date?.split("-")[0] || "Unknown"})</h5>
         </div>
       </Link>
-     
     </div>
-    
   );
 }
 

@@ -13,4 +13,11 @@ export const TrailerProvider = ({ children }) => {
   );
 };
 
-export const useTrailer = () => useContext(TrailerContext);
+// ✅ Hook personalizat cu verificare
+export const useTrailer = () => {
+  const context = useContext(TrailerContext);
+  if (!context) {
+    throw new Error("❌ useTrailer must be used within a TrailerProvider");
+  }
+  return context;
+};

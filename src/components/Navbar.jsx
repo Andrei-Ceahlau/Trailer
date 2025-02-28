@@ -11,6 +11,7 @@ function Navbar() {
     e.preventDefault();
     if (query.trim()) {
       navigate(`/search?query=${query}`);
+      setQuery(""); // ✅ Golește input-ul după căutare
     }
   };
 
