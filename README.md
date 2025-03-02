@@ -1,11 +1,8 @@
-# 1️⃣ Clone the repository
+# 1 Clone the repository
 git clone https://github.com/Andrei-Ceahlau/Trailer.git
 
-# 2️⃣ Navigate to the project folder
-cd Trailer
-
-# 3️⃣ Install dependencies
+# 2 Install dependencies
 npm install
 
-# 4️⃣ Start the development server
+# 3 Start the development server
 npm start
